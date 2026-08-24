@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="HOODIE IEM KATOWICE BREAKTHROUGH — Sky Gaming / Team Spirit Merchandise">
+    <meta name="author" content="Sky Gaming">
+    <meta property="og:title" content="HOODIE IEM KATOWICE BREAKTHROUGH — Sky Gaming®">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Sky Gaming®">
+    <meta name="theme-color" content="#000000">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="apple-touch-icon" type="image/png" sizes="180x180" href="division-plugins/.wp-a/logo/skygaming_logo.png">
+    <link rel="icon" type="image/png" href="division-plugins/.wp-a/logo/skygaming_logo.png">
+
+    <!-- Подключение базовых стилей и скриптов -->
+    <link rel="stylesheet" href="division-plugins/index-2d6b5952.css?v1.01.2">
+    <link rel="stylesheet" href="division-plugins/addcard.css?v1.01.2">
+    <script src="division-plugins/.ms-v/addcard.js?v1.01.2"></script>
+    <script src="division-plugins/.ms-v/l-loader.js?v1.01.2"></script>
+    <script src="division-plugins/.ms-v/translations.js?v1.01.2"></script>
+
+    <title>HOODIE IEM KATOWICE BREAKTHROUGH — Sky Gaming Shop</title>
+
+    <style>
+        .header__bars {
+            pointer-events: auto !important;
+            z-index: 9999 !important;
+            position: relative !important;
+        }
+
+        /* Адаптированные стили для карточек товаров на основе общей темы */
+        .product-section {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px 15px;
+        }
+
+        .product-card {
+            background: rgba(18, 18, 18, 0.85);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            overflow: hidden;
+            margin-bottom: 25px;
+            transition: border-color 0.3s ease, transform 0.2s ease;
+        }
+
+        .product-card:hover {
+            border-color: rgba(0, 229, 255, 0.4);
+        }
+
+        .product-card__head {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            cursor: pointer;
+            user-select: none;
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        .product-card__title-group {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .product-card__category {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #888888;
+        }
+
+        .product-card__title {
+            font-size: 20px;
+            font-weight: 700;
+            color: #ffffff;
+            text-transform: uppercase;
+        }
+
+        .product-card__price-badge {
+            font-size: 18px;
+            font-weight: 700;
+            color: #00e5ff;
+            background: rgba(0, 229, 255, 0.1);
+            padding: 6px 14px;
+            border-radius: 4px;
+            border: 1px solid rgba(0, 229, 255, 0.2);
+        }
+
+        .product-card__body {
+            display: none;
+            padding: 25px 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            background: rgba(0, 0, 0, 0.4);
+        }
+
+        .product-card.active .product-card__body {
+            display: block;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+
+        .product-gallery img {
+            width: 100%;
+            border-radius: 6px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .product-info {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .product-description {
+            font-size: 14px;
+            line-height: 1.6;
+            color: #cccccc;
+        }
+
+        .buy-button {
+            display: inline-block;
+            width: 100%;
+            text-align: center;
+            background: #00e5ff;
+            color: #000000;
+            font-weight: 700;
+            padding: 14px;
+            border-radius: 4px;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: background 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 0 15px rgba(0, 229, 255, 0.2);
+        }
+
+        .buy-button:hover {
+            background: #00b3cc;
+            box-shadow: 0 0 20px rgba(0, 229, 255, 0.4);
+        }
+
+        /* Выпадающие аккордеоны с подробностями */
+        .product-accordion {
+            margin-top: 15px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .accordion-item {
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .accordion-header {
+            width: 100%;
+            background: transparent;
+            border: none;
+            color: #ffffff;
+            text-align: left;
+            padding: 14px 0;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: color 0.2s ease;
+        }
+
+        .accordion-header:hover {
+            color: #00e5ff;
+        }
+
+        .accordion-header::after {
+            content: '+';
+            font-size: 16px;
+            color: #00e5ff;
+        }
+
+        .accordion-item.open .accordion-header::after {
+            content: '-';
+        }
+
+        .accordion-content {
+            display: none;
+            padding-bottom: 15px;
+            font-size: 13px;
+            line-height: 1.6;
+            color: #aaaaaa;
+        }
+
+        .accordion-item.open .accordion-content {
+            display: block;
+        }
+
+        .lookbook-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 8px;
+            margin-top: 10px;
+        }
+
+        .lookbook-grid img {
+            width: 100%;
+            height: 100px;
+            object-fit: cover;
+            border-radius: 4px;
+        }
+
+        .size-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+            font-size: 12px;
+        }
+
+        .size-table th, .size-table td {
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 6px 10px;
+            text-align: center;
+        }
+
+        .size-table th {
+            background: rgba(255, 255, 255, 0.05);
+            color: #00e5ff;
+        }
+
+        @media (max-width: 768px) {
+            .product-grid {
+                grid-template-columns: 1fr;
+            }
+            .product-card__head {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="layout">
+        <div class="layout__header">
+            <div class="header" id="header">
+                <div class="header__container">
+                    <div class="header__bars" id="burgerButton"></div>
+                    <div class="header__nav">
+                        <nav class="nav">
+                            <ul class="nav__list">
+                                <li class="nav__item"><a href="home.html" class="nav__link">Главная</a></li>
+                                <li class="nav__item"><a href="about.html" class="nav__link">О нас</a></li>
+                                <li class="nav__item"><a href="team.html" class="nav__link">Команды</a></li>
+                                <li class="nav__item"><a href="blog.html" class="nav__link">Блог</a></li>
+                                <li class="nav__item"><a href="partners.html" class="nav__link">Партнеры</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+                <div class="header__lang-shop">
+                    <div class="header__lang">
+                        <div class="lang" id="langButton">
+                            <div class="lang__items">
+                                <div class="lang__item" data-lang="ru">RU</div>
+                                <div class="lang__item" data-lang="en">EN</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="header__shop">
+                        <a href="https://sky-gaming.online/oyna/index.html" class="header__shop-link">Project Laser</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="layout__content">
+            <div class="team-page">
+                <div class="team-page__content">
+                    <div class="team-player-background" id="playerBackground"></div>
+                    <div class="team-page__back">
+                        <a href="team.html" class="back-link">Назад к каталогу</a>
+                    </div>
+
+                    <div class="product-section">
+                        <!-- Товарная карточка с разворачиванием -->
+                        <div class="product-card active" id="product1">
+                            <div class="product-card__head" onclick="toggleProduct('product1')">
+                                <div class="product-card__title-group">
+                                    <span class="product-card__category">TEAM SPIRIT L3G4CY</span>
+                                    <span class="product-card__title">HOODIE IEM KATOWICE BREAKTHROUGH</span>
+                                </div>
+                                <div class="product-card__price-badge">7 199 ₽</div>
+                            </div>
+
+                            <div class="product-card__body">
+                                <div class="product-grid">
+                                    <div class="product-gallery">
+                                        <img src="https://shop.teamspirit.gg/cdn/shop/files/1_3e08f512-3211-46bb-9bd1-237a43588ee2.jpg" alt="HOODIE IEM KATOWICE BREAKTHROUGH">
+                                    </div>
+
+                                    <div class="product-info">
+                                        <div class="product-description">
+                                            Это худи приурочено к победе Team Spirit на турнире IEM Katowice 2024. Данный момент стал одной из ключевых точек в истории CS-состава и важнейшим этапом выхода команды на Tier-1 уровень.
+                                        </div>
+
+                                        <a href="https://shop.teamspirit.gg/ru/products/568" target="_blank" rel="noopener noreferrer" class="buy-button">Купить в магазине</a>
+
+                                        <!-- Вложенные разворачиваемые блоки -->
+                                        <div class="product-accordion">
+                                            <div class="accordion-item">
+                                                <button class="accordion-header" onclick="toggleAccordion(event, this)">О доставке</button>
+                                                <div class="accordion-content">
+                                                    Доставка осуществляется по РФ и странам СНГ. Доступность определенных вариантов курьерских служб зависит от указанного региона при оформлении заказа. Сроки отгрузки со склада — 1-3 рабочих дня.
+                                                </div>
+                                            </div>
+
+                                            <div class="accordion-item">
+                                                <button class="accordion-header" onclick="toggleAccordion(event, this)">Материалы и детали</button>
+                                                <div class="accordion-content">
+                                                    Состав: 80% хлопок высшего качества, 20% полиэстер.<br>
+                                                    Плотность ткани: 420 г/м² (с начесом).<br>
+                                                    Фирменная фурнитура, нанесение методом шелкографии и вышивки.
+                                                </div>
+                                            </div>
+
+                                            <div class="accordion-item">
+                                                <button class="accordion-header" onclick="toggleAccordion(event, this)">Лук бук</button>
+                                                <div class="accordion-content">
+                                                    <div class="lookbook-grid">
+                                                        <img src="https://shop.teamspirit.gg/cdn/shop/files/1_3e08f512-3211-46bb-9bd1-237a43588ee2.jpg" alt="Look 1">
+                                                        <img src="https://shop.teamspirit.gg/cdn/shop/files/1_3e08f512-3211-46bb-9bd1-237a43588ee2.jpg" alt="Look 2">
+                                                        <img src="https://shop.teamspirit.gg/cdn/shop/files/1_3e08f512-3211-46bb-9bd1-237a43588ee2.jpg" alt="Look 3">
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="accordion-item">
+                                                <button class="accordion-header" onclick="toggleAccordion(event, this)">Размерная сетка</button>
+                                                <div class="accordion-content">
+                                                    <table class="size-table">
+                                                        <thead>
+                                                            <tr>
+                                                                <th>Размер</th>
+                                                                <th>Ширина (см)</th>
+                                                                <th>Длина (см)</th>
+                                                                <th>Рукав (см)</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <tr><td>S</td><td>56</td><td>68</td><td>62</td></tr>
+                                                            <tr><td>M</td><td>59</td><td>71</td><td>64</td></tr>
+                                                            <tr><td>L</td><td>62</td><td>74</td><td>66</td></tr>
+                                                            <tr><td>XL</td><td>65</td><td>77</td><td>68</td></tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+
+                                            <div class="accordion-item">
+                                                <button class="accordion-header" onclick="toggleAccordion(event, this)">Инструкции по уходу</button>
+                                                <div class="accordion-content">
+                                                    • Стирать наизнанку при температуре не более 30°C.<br>
+                                                    • Не использовать отбеливатели.<br>
+                                                    • Гладить при низкой температуре, избегая области принтов.<br>
+                                                    • Сушить в расправленном виде.
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="layout__footer">
+            <div class="footer">
+                <ul class="footer__nav">
+                    <li class="footer__nav-item">
+                        <a href="contacts.html" class="footer__link">Контакты</a>
+                    </li>
+                    <li class="footer__nav-item">© 2026 Sky Gaming</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Логика работы аккордеона и шапки -->
+    <script>
+    function toggleProduct(id) {
+        const card = document.getElementById(id);
+        if (card) {
+            card.classList.toggle('active');
+        }
+    }
+
+    function toggleAccordion(event, button) {
+        event.stopPropagation();
+        const item = button.parentElement;
+        item.classList.toggle('open');
+    }
+
+    class Header {
+        constructor(){
+            this.isHeaderOpened = false;
+            this.isLangOpened = false;
+            this.currentLang = 'ru';
+            this.init();
+        }
+
+        init(){
+            const burgerButton = document.getElementById('burgerButton');
+            if (burgerButton){
+                burgerButton.addEventListener('click',()=> this.toggleHeader());
+            }
+            const langButton = document.getElementById('langButton');
+            if (langButton){
+                langButton.addEventListener('click',()=> this.toggleLang());
+            }
+            const langItems = document.querySelectorAll('.lang__item');
+            langItems.forEach(item =>{
+                item.addEventListener('click', (e) =>{
+                    e.stopPropagation();
+                    const lang = item.getAttribute('data-lang');
+                    this.changeLang(lang);
+                });
+            });
+        }
+
+        toggleHeader(){
+            this.isHeaderOpened = !this.isHeaderOpened;
+            const header = document.getElementById('header');
+            if (header){
+                header.classList.toggle('header_nav-opened', this.isHeaderOpened);
+            }
+        }
+
+        toggleLang(){
+            this.isLangOpened = !this.isLangOpened;
+            const lang = document.getElementById('langButton');
+            if (lang){
+                lang.classList.toggle('lang_opened', this.isLangOpened);
+            }
+        }
+
+        changeLang(lang){
+            this.currentLang = lang;
+            this.toggleLang();
+            document.cookie = `locale=${lang}; path=/; domain=sky-gaming.online; max-age=31536000`;
+        }
+    }
+
+    document.addEventListener('DOMContentLoaded',() =>{
+        window.headerApp = new Header();
+    });
+    </script>
+</body>
+</html>
