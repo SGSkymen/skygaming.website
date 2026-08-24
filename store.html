@@ -1,4 +1,4 @@
-<!DOCTYPE html> ничего особо не меняй , делаем малые изменения как тут указаны
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -32,7 +32,60 @@
         <script src="division-plugins/.ms-v/translations.js?v1.01.2"></script>
         <title>Sky Gaming</title>
 
-<style>.header__bars {pointer-events: auto !important;z-index: 9999 !important;position: relative !important;}
+<style>
+.header__bars {pointer-events: auto !important;z-index: 9999 !important;position: relative !important;}
+
+/* Дополнительные стили для аккордеонов и белой квадратной кнопки */
+.shop-accordion-item {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    margin-bottom: 8px;
+    padding-bottom: 8px;
+}
+.shop-accordion-summary {
+    font-weight: 600;
+    cursor: pointer;
+    color: #ffffff;
+    outline: none;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.shop-accordion-summary::-webkit-details-marker {
+    display: none;
+}
+.shop-accordion-summary::after {
+    content: '+';
+    font-size: 16px;
+    color: #ffffff;
+}
+details[open] .shop-accordion-summary::after {
+    content: '-';
+}
+.shop-accordion-details {
+    padding-top: 8px;
+    color: #cccccc;
+    font-size: 13px;
+    line-height: 1.5;
+}
+.btn-square-buy {
+    display: inline-block;
+    width: 100%;
+    background-color: #ffffff;
+    color: #000000;
+    text-align: center;
+    padding: 12px 0;
+    font-weight: 700;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-radius: 0px; /* Квадратная форма */
+    letter-spacing: 1px;
+    box-sizing: border-box;
+    transition: opacity 0.2s ease;
+}
+.btn-square-buy:hover {
+    opacity: 0.9;
+}
 </style>
 </head>
 <body>
@@ -90,29 +143,46 @@
                             </div>
                             <div class="team-player__body">
                                 <div class="team-player__info-item">
-                                    <div class="team-player__info-label" data-translate="common.role">Лписание</div>
+                                    <div class="team-player__info-label" data-translate="common.role">Описание</div>
                                     <div class="team-player__info-value" data-translate="player.role">Худи посвящена победе Team Spirit на IEM Katowice 2024 - одному из ключевых моментов в истории CS состава, ставшим важной точкой перехода команды на tier-1 уровень.
 
 Худи отражает атмосферу команды через детали и мемы, знакомые фанатам и тем, кто следит за историей состава во влогах и социальных сетях.</div>
                                 </div>
                                 <div class="team-player__info-item"> 
-                                    <div class="team-player__info-label" data-translate="common.bio">
-О доставке
-Материалы и детали
-Инструкции по уходу
-Размерная сетка
-</div>(это то что должно сохранить функционал, также нажимаешь и открывает информацию подробно)
+                                    <div class="team-player__info-label" data-translate="common.bio">Детали товара</div>
                                     <div class="team-player__info-value" data-translate="player.bio">
+                                        <details class="shop-accordion-item">
+                                            <summary class="shop-accordion-summary">О доставке</summary>
+                                            <div class="shop-accordion-details">
+                                                Доставка осуществляется по РФ и странам СНГ. Сроки отгрузки со склада — от 1 до 3 рабочих дней.
+                                            </div>
+                                        </details>
+                                        <details class="shop-accordion-item">
+                                            <summary class="shop-accordion-summary">Материалы и детали</summary>
+                                            <div class="shop-accordion-details">
+                                                Состав: 80% хлопок, 20% полиэстер.<br>Плотность ткани: 420 г/м² с начесом. Качественное нанесение принта.
+                                            </div>
+                                        </details>
+                                        <details class="shop-accordion-item">
+                                            <summary class="shop-accordion-summary">Инструкции по уходу</summary>
+                                            <div class="shop-accordion-details">
+                                                Стирать вывернутым наизнанку при температуре до 30°C. Не использовать отбеливатель.
+                                            </div>
+                                        </details>
+                                        <details class="shop-accordion-item">
+                                            <summary class="shop-accordion-summary">Размерная сетка</summary>
+                                            <div class="shop-accordion-details">
+                                                S - 56x68 см<br>
+                                                M - 59x71 см<br>
+                                                L - 62x74 см<br>
+                                                XL - 65x77 см
+                                            </div>
+                                        </details>
                                     </div>
                                 </div>
                                 <div class="team-player__info-item">
-                                    <div class="team-player__info-label">Купить</div>(чисто кнопка белого цвета с черным текстом , квадратная)
                                     <div class="team-player__info-value">
-                                        <div class="team-player__socials">
-                                            <div class="socials"><a href="https://www.google.com/url?sa=t&source=web&rct=j&opi=89978449&url=https://www.instagram.com/yakovkristian/&ved=2ahUKEwjDk-a2oOGMAxViHbkGHX4VDn8QFnoECCIQAQ&usg=AOvVaw3c4gnR3Fd6crdblBSzs8D-" target="_blank"
-                                                    class="socials__item socials__item_instagram"></a><a></a>
-                                            </div>
-                                        </div>
+                                        <a href="https://shop.teamspirit.gg/ru/products/568" target="_blank" class="btn-square-buy">Купить</a>
                                     </div>
                                 </div>
                             </div>
