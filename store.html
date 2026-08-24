@@ -40,6 +40,7 @@
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     margin-bottom: 8px;
     padding-bottom: 8px;
+    background-color: transparent !important;
 }
 .shop-accordion-summary {
     font-weight: 600;
@@ -50,6 +51,16 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    background-color: transparent !important;
+    transition: color 0.2s ease;
+}
+/* Предотвращение изменения фона при наведении */
+.shop-accordion-summary:hover,
+.shop-accordion-summary:focus,
+.shop-accordion-summary:active,
+details[open] > .shop-accordion-summary {
+    background-color: transparent !important;
+    background: none !important;
 }
 .shop-accordion-summary::-webkit-details-marker {
     display: none;
@@ -67,6 +78,15 @@ details[open] .shop-accordion-summary::after {
     color: #cccccc;
     font-size: 13px;
     line-height: 1.5;
+    background-color: transparent !important;
+}
+/* Переопределение возможных глобальных hover-эффектов для текста и блоков */
+.team-player__info-value:hover,
+.team-player__info-item:hover,
+.team-player__body:hover,
+details:hover {
+    background-color: transparent !important;
+    background: none !important;
 }
 .btn-square-buy {
     display: inline-block;
@@ -85,6 +105,8 @@ details[open] .shop-accordion-summary::after {
 }
 .btn-square-buy:hover {
     opacity: 0.9;
+    background-color: #ffffff !important;
+    color: #000000 !important;
 }
 </style>
 </head>
