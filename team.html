@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="#SKYGAMING #AIMFORTHESKY">
+    <meta name="keywords" content="Sky Gaming, киберспортивная команда">
+    <meta name="author" content="Sky Gaming">
+    <meta property="og:title" content="Sky Gaming®">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://sky-gaming.online/">
+    <meta property="og:description" content="#SKYGAMING #AIMFORTHESKY">
+    <meta property="og:image" content="https://sky-gaming.online/division-plugins/.wp-a/logo/.m-banner/banner-url.png">
+    <meta property="og:site_name" content="Sky Gaming®">
+    <meta property="og:locale" content="en_US">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@skygaming">
+    <meta name="twitter:title" content="Sky Gaming®">
+    <meta name="twitter:description" content="#SKYGAMING #AIMFORTHESKY">
+    <meta name="twitter:image" content="https://sky-gaming.online/division-plugins/.wp-a/logo/.m-banner/banner-url.png">
+    <meta name="msapplication-TileColor" content="#000000">
+    <meta name="theme-color" content="#000000">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="apple-touch-icon" type="image/png" sizes="180x180" href="division-plugins/.wp-a/logo/skygaming_logo.png">
+    <link rel="icon" type="image/png" href="division-plugins/.wp-a/logo/skygaming_logo.png">
+    <meta name='robots' content='index, follow, max-image-preview:large'>
+    <link rel="stylesheet" href="division-plugins/index-2d6b5952.css?v1.01.1">
+    <script src="division-plugins/.ms-v/l-loader.js?v1.01.1"></script>
+    <script src="division-plugins/.ms-v/translations.js?v1.01.1"></script>
+    <title>Sky Gaming</title>
+</head>
+<body>
+<div id="app">   
+    <div class="layout">
+        <div class="layout__header">
+            <div class="header" id="header">
+                <div class="header__container">
+                    <div class="header__bars" id="burgerButton"></div>
+                    <div class="header__nav">
+                        <nav class="nav">
+                            <ul class="nav__list">
+                                <li class="nav__item"><a href="home.html" class="nav__link">Главная</a></li>
+                                <li class="nav__item"><a href="about.html" class="nav__link">О нас</a></li>
+                                <li class="nav__item"><a href="team.html" class="nav__link nav__link_active">Команды</a></li>
+                                <li class="nav__item"><a href="blog.html" class="nav__link">Блог</a></li>
+                                <li class="nav__item"><a href="partners.html" class="nav__link">Партнеры</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+                <div class="header__lang-shop">
+                    <div class="header__lang">
+                        <div class="lang" id="langButton">
+                            <div class="lang__items">
+                                <div class="lang__item" data-lang="ru">RU</div>
+                                <div class="lang__item" data-lang="en">EN</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="header__shop">
+                        <a href="https://sky-gaming.online/oyna/index.html" class="header__shop-link">Project Laser</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="layout__content">
+            <div class="teams-page">
+                <div class="teams-page__list">
+                    <div class="teams-page__list-item"><a href="team.valorant.html" 
+                    class="teams-page__link">Valorant</a></div>
+                    <div class="teams-page__list-item"><a href="team.dota2.html" 
+                    class="teams-page__link">DOTA2</a></div>
+                    <div class="teams-page__list-item"><a href="team.bs.html" 
+                    class="teams-page__link">Brawl Stars</a></div>
+                    <div class="teams-page__list-item"><a href="team.chess.html" 
+                    class="teams-page__link">Chess</a></div>
+                    <div class="teams-page__list-item"><a href="team.cs2.html" 
+                    class="teams-page__link">CS2</a></div>
+                    <div class="teams-page__list-item"><a href="team.clashofclans.html" 
+                    class="teams-page__link">Clash Of Clans</a></div>
+                    <div class="teams-page__list-item"><a href="team.bs-academy.html" 
+                    class="teams-page__link">Sky Gaming Academy</a></div>
+                    <div class="teams-page__list-item"><a href="team.skygaming-family.html" 
+                    class="teams-page__link">Sky Gaming Family</a></div>
+                </div>
+            </div>
+        </div>
+        <div class="layout__footer">
+            <div class="footer">
+                <ul class="footer__nav">
+                    <li class="footer__nav-item"><a href="contacts.html" class="footer__link">Контакты</a></li>
+                    <li class="footer__nav-item">© 2026 Sky Gaming</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+class Header {
+    constructor(){
+        this.isHeaderOpened = false;
+        this.isLangOpened = false;
+        this.currentLang = 'ru';
+        this.init();
+    }
+    init(){
+        const burgerButton = document.getElementById('burgerButton');
+        if (burgerButton){ burgerButton.addEventListener('click',()=> this.toggleHeader()); }
+        const langButton = document.getElementById('langButton');
+        if (langButton){ langButton.addEventListener('click',()=> this.toggleLang()); }
+        const navItems = document.querySelectorAll('.nav__item');
+        navItems.forEach(item =>{ item.addEventListener('click',() =>{ if (window.innerWidth < 768){ this.toggleHeader(); } }); });
+        const langItems = document.querySelectorAll('.lang__item');
+        langItems.forEach(item =>{ item.addEventListener('click', (e) =>{ e.stopPropagation(); const lang = item.getAttribute('data-lang'); this.changeLang(lang); }); });
+    }
+    toggleHeader(){ this.isHeaderOpened = !this.isHeaderOpened; const header = document.getElementById('header'); if (header){ header.classList.toggle('header_nav-opened', this.isHeaderOpened); } }
+    toggleLang(){ this.isLangOpened = !this.isLangOpened; const lang = document.getElementById('langButton'); if (lang){ lang.classList.toggle('lang_opened', this.isLangOpened); } }
+    changeLang(lang){ this.currentLang = lang; this.toggleLang(); document.cookie = `locale=${lang}; path=/; domain=sky-gaming.online; max-age=31536000`; }
+}
+document.addEventListener('DOMContentLoaded',() =>{ window.headerApp = new Header(); });
+function getShopLink(){ return window.location.hostname === "sky-gaming.online" ? "https://sky-gaming.online/home.html" : "https://sky-gaming.online/"; }
+</script>
+</body>
+</html>
